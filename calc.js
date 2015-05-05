@@ -5,19 +5,23 @@ var num2;
 var opType;
 var start;
 var eq;
+var displayResult = document.getElementsByClassName('display')[0];
 
 function initialize(){
 result= 0; 
 num2 = '';
 opType = '';
 start ='';
-eq = '';}
+eq = '';
+displayResult.value=0;
+}
 
 initialize();
 
 for(var n=0;n<numbers.length;n++)
 numbers[n].addEventListener('click', function(event){
 num2 += this.value;
+displayResult.value = num2;
 });
 
 for(var i=0;i<operators.length;i++)
@@ -25,6 +29,7 @@ operators[i].addEventListener('click', function(event){
 start = num2;
 opType =this.value;
 num2 = '';
+displayResult.value = opType;
 });
 
 document.getElementsByClassName('clear')[0].addEventListener('click', function(event){
@@ -52,6 +57,6 @@ document.getElementsByClassName('eq')[0].addEventListener('click', function(even
         result = (start + num2);
         break;
     }
-  
+    displayResult.value = result;
   })
 

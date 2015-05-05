@@ -1,13 +1,19 @@
 var numbers = document.getElementsByClassName('number')
 var operators = document.getElementsByClassName('operator')
-var result= 0; 
+var result; 
+var num2;
+var opType;
+var start;
+var eq;
 
-// document.getElementsByClassName('input').value
+function initialize(){
+result= 0; 
+num2 = '';
+opType = '';
+start ='';
+eq = '';}
 
-var num2 = '';
-var opType = '';
-var start = '';
-var eq = '';
+initialize();
 
 for(var n=0;n<numbers.length;n++)
 numbers[n].addEventListener('click', function(event){
@@ -20,6 +26,10 @@ start = num2;
 opType =this.value;
 num2 = '';
 });
+
+document.getElementsByClassName('clear')[0].addEventListener('click', function(event){
+    initialize();
+  })
 
 document.getElementsByClassName('eq')[0].addEventListener('click', function(event){
     eq = this.value;
@@ -43,6 +53,5 @@ document.getElementsByClassName('eq')[0].addEventListener('click', function(even
         break;
     }
   
-  });
-
+  })
 
